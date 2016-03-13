@@ -37,4 +37,8 @@ RSpec.describe TipCalculator do
   it "rounds up the tip amount for fractions of a cent" do
     expect(described_class.new("11.25").tip).to eq("1.69")
   end
+
+  it "doesn't allow negative bills to be passed in" do
+    expect{described_class.new("-25.00")}.to raise_exception(ArgumentError)
+  end
 end

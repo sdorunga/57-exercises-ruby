@@ -1,6 +1,7 @@
 class TipCalculator
   def initialize(bill_amount, tip_percent=15)
     @bill_amount = Float(bill_amount)
+    raise ArgumentError.new("Negative bills are not allowed") if @bill_amount < 0
     @tip_percent = Float(tip_percent)
   end
 
